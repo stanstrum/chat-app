@@ -1,0 +1,15 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "DozeChat backend",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "test": "jest"
+  },
+  "author": "stanstrum",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}

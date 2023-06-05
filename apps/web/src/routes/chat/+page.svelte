@@ -67,7 +67,7 @@
   p-4
   overflow-y-scroll
 ">
-  <div><p class="text-white">header shit</p></div>
+  <div><p class="text-white">Header Here</p></div>
   <div bind:this={messagesElement} class="justify-items-end">
     {#each messages as status}
       <Message {...status.message} pending={status.pending} />

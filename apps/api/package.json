@@ -7,6 +7,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node .",
+    "lint": "npm run build --noEmit",
     "dev": "concurrently npm:dev:*",
     "dev:build": "npm run build -- --watch --preserveWatchOutput",
     "dev:run": "nodemon",

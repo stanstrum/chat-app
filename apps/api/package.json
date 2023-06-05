@@ -26,12 +26,5 @@
     "socket.io": "^4.6.2",
     "zod": "^3.21.4"
   },
-  "exports": {
-    "interface": "./dist/interface/index.js"
-  },
-  "typesVersion": {
-    "*": {
-      "interface": ["./typings/interface/index.d.ts"]
-    }
-  }
+  "types": "./typings/index.d.ts"
 }

@@ -1,10 +1,9 @@
 {
-  "name": "backend",
+  "name": "tools",
   "version": "1.0.0",
-  "description": "DozeChat backend",
+  "description": "Tools for DozeChat",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc --build",
     "test": "jest"
   },
   "author": "stanstrum",

@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>Chat</title>
+</svelte:head>
+
 <script lang="ts">
   import type { Socket } from "socket.io-client";
   import { io } from "socket.io-client";

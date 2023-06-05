@@ -3,7 +3,7 @@ import express from "express";
 import { createServer } from "node:http";
 import { Server } from "socket.io";
 
-import type { TypedServer } from "./Interface/EventsMap.js";
+import type { TypedServer } from "interface";
 
 const app = express();
 

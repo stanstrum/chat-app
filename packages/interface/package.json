@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "interface",
+  "version": "1.0.0",
+  "description": "Interface typings for API, web apps",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "npm run build -- --watch --preserveWatchOutput",
+    "lint": "npm run build -- --noEmit"
+  },
+  "author": "stanstrum",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "socket.io": "^4.6.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.3"
+  },
+  "types": "typings/index.d.ts"
+}

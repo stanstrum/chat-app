@@ -1,14 +1,13 @@
 <script lang="ts">
-
   import type { Socket } from "socket.io-client";
   import { io } from "socket.io-client";
 
 	import Message from "./Message.svelte";
 
-  import type * as ApiInterface from "api/interface";
+  import type * as ApiInterface from "interface";
 	import { afterUpdate } from "svelte";
 
-  let messagesElement;
+  let messagesElement: HTMLDivElement;
 
   /** @todo move this to an ENV for development and production environments */
   const socket: Socket<
@@ -17,7 +16,7 @@
   > = io("ws://localhost:3000");
 
   let messages: Array<{
-    message: Message,
+    message: ApiInterface.Message,
     pending?: boolean
   }
   > = [];

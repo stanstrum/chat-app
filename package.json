@@ -6,13 +6,13 @@
     "dev": "turbo run dev",
     "start": "turbo run start",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "turbo run format"
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
-    "prettier": "^2.5.1",
+    "prettier": "^2.8.8",
     "turbo": "^1.9.7"
   },
   "name": "dozechat",

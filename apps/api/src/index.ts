@@ -15,7 +15,7 @@ const io: TypedServer = new Server(httpServer, {
   },
 });
 
-io.on("connection", socket => {
+io.on("connection", (socket) => {
   console.log(`[connection] ${socket.id}`);
 
   socket.broadcast.emit("userJoin", socket.id);

@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node .",
-    "lint": "npm run build --noEmit",
+    "lint": "npm run build --noEmit && prettier --plugin-search-dir . --check .",
+    "format": "prettier --plugin-search-dir . --write .",
     "dev": "concurrently npm:dev:*",
     "dev:build": "npm run build -- --watch --preserveWatchOutput",
     "dev:run": "nodemon",

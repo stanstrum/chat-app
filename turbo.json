@@ -13,6 +13,7 @@
       ]
     },
     "lint": {},
+    "format": {},
     "dev": {
       "dependsOn": ["^build"],
       "cache": false,

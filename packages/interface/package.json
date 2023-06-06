@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "dev": "npm run build -- --watch --preserveWatchOutput",
-    "lint": "npm run build -- --noEmit"
+    "lint": "npm run build --noEmit && prettier --plugin-search-dir . --check .",
+    "format": "prettier --plugin-search-dir . --write ."
   },
   "author": "stanstrum",
   "license": "UNLICENSED",

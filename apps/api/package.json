@@ -5,7 +5,7 @@
   "description": "DozeChat backend",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npx tsc",
     "start": "node .",
     "lint": "npm run build --noEmit && prettier --plugin-search-dir . --check .",
     "format": "prettier --plugin-search-dir . --write .",

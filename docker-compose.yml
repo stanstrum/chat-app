@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        WORKSPACE: api
+    restart: no
+    ports:
+      - ${API_PORT}:${API_PORT}
+    networks:
+      - chat_network
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        WORKSPACE: web
+    restart: no
+    ports:
+      - ${WEB_PORT}:${WEB_PORT}
+    networks:
+      - chat_network
+
+networks:
+  chat_network:
+    external: true

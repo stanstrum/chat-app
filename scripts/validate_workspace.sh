@@ -1,3 +1,5 @@
+#!/bin/sh
+
 if [ "${WORKPACE}" = "none" -o -z "${WORKSPACE}" ]
 then
   echo "No workspace provided (use env WORKSPACE)"

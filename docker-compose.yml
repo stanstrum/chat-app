@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
+        ENVIRONMENT: ${ENVIRONMENT}
         WORKSPACE: api
     restart: no
     ports:
@@ -17,6 +18,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
+        ENVIRONMENT: ${ENVIRONMENT}
         WORKSPACE: web
     restart: no
     ports:

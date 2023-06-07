@@ -1,13 +1,9 @@
 # base
 FROM node:20-alpine AS base
+COPY scripts/ scripts/
 
 ARG WORKSPACE
 ENV WORKSPACE=${WORKSPACE}
-
-ENV NODE_ENV=${ENVIRONMENT}
-
-COPY scripts/ scripts/
-RUN /bin/sh scripts/validate_workspace.sh
 
 # builder
 FROM base AS builder
@@ -19,6 +15,9 @@ WORKDIR /app
 
 RUN npm i -g turbo
 COPY . .
+
+COPY --from=base /scripts/validate_workspace.sh /scripts/
+RUN sh /scripts/validate_workspace.sh
 
 RUN npx turbo prune --scope=${WORKSPACE} --docker
 
@@ -47,9 +46,13 @@ RUN adduser --system --uid 1001 nodejs
 USER nodejs
 
 COPY --from=installer --chown=nodejs:nodejs /app/ .
+COPY --from=builder --chown=nodejs:nodejs /app/node_modules/ /app/node_modules/
 
-COPY --from=builder /app/node_modules/ /app/node_modules/
-RUN chown nodejs:nodejs node_modules
+ARG ENVIRONMENT=none
+ENV ENVIRONMENT=${ENVIRONMENT}
 
-ENTRYPOINT npm start -w ${WORKSPACE} --
-# CMD ${SERVICE_ARGS}
+COPY --from=base /scripts/start.sh /scripts/
+ENTRYPOINT /bin/sh /scripts/start.sh
+
+ENV SERVICE_ARGS=""
+CMD ${SERVICE_ARGS}

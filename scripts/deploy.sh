@@ -1,4 +1,4 @@
 #!/bin/bash
 
-./deploy.sh
-./up.sh
+scripts/build.sh
+scripts/up.sh

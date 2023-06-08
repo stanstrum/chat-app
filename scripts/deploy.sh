@@ -18,8 +18,11 @@ fi
 echo "Using environment \"${ENVIRONMENT}\""
 
 # build using buildkit
-COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 BUILDKIT_PROGRESS=plain \
-  docker compose -f docker-compose.yml build ${BUILD_ARGS}
+COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
+  docker compose \
+    --env-file=env/${ENVIRONMENT}.env \
+    -f docker-compose.yml \
+  build ${BUILD_ARGS}
 
 # start in detached mode
 BUILD_EXIT_CODE=$?
@@ -31,4 +34,7 @@ then
   exit ${BUILD_EXIT_CODE}
 fi
 
-docker compose -f docker-compose.yml up
+docker compose \
+  --env-file=env/${ENVIRONMENT}.env \
+  -f docker-compose.yml \
+  up

@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "vite dev --host",
 		"build": "vite build",
-		"start": "npx cross-env PORT=5173 node .",
+		"start": "npx cross-env PORT=${WEB_PORT} node .",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",

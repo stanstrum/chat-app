@@ -1,14 +1,19 @@
 {
   "name": "tools",
   "version": "1.0.0",
-  "description": "Tools for DozeChat",
+  "description": "Shared tools for use around the codebase",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "dev": "npm run build -- --watch --preserveWatchOutput"
   },
   "author": "stanstrum",
   "license": "UNLICENSED",
+  "dependencies": {
+    "znv": "^0.3.2"
+  },
   "devDependencies": {
-    "jest": "^29.5.0"
+    "typescript": "^5.1.3"
   }
 }

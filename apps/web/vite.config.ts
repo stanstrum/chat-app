@@ -1,16 +1,27 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 
 import { z } from "zod";
-import { processEnv } from "tools";
 
-const env = processEnv({
-	WEB_PORT: z.number().int().gte(0).lte(65535).default(5173)
-});
+export default defineConfig(({ mode }) => {
+	const env = z.object({
+		WEB_PORT: z.string().nonempty().default("5173"),
+		NODE_ENV: z.string()
+	}).parse({
+		...process.env,
+		...loadEnv(mode, process.cwd(), "")
+	});
 
-export default defineConfig({
-	plugins: [sveltekit()],
-	server: {
-		port: env.WEB_PORT
-	}
+	const port = Number.parseInt(env.WEB_PORT);
+
+	if (Number.isNaN(port))
+		throw new Error(`Port is invalid: "${env.WEB_PORT}"`);
+
+	return {
+		plugins: [sveltekit()],
+		server: {
+			port,
+			strictPort: true
+		}
+	};
 });

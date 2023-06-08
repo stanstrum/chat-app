@@ -46,7 +46,7 @@ RUN adduser --system --uid 1001 nodejs
 USER nodejs
 
 COPY --from=installer --chown=nodejs:nodejs /app/ .
-COPY --from=builder --chown=nodejs:nodejs /app/node_modules/ /app/node_modules/
+COPY --from=installer --chown=nodejs:nodejs /app/node_modules/ /app/node_modules/
 
 ARG ENVIRONMENT=none
 ENV ENVIRONMENT=${ENVIRONMENT}

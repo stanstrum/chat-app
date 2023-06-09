@@ -11,13 +11,15 @@
   import type * as ApiInterface from "interface";
 	import { afterUpdate } from "svelte";
 
+  import { PUBLIC_WEB_WS_LOCATION } from "$env/static/public"
+
   let messagesElement: HTMLDivElement;
 
   /** @todo move this to an ENV for development and production environments */
   const socket: Socket<
     ApiInterface.ServerToClientEvents,
     ApiInterface.ClientToServerEvents
-  > = io("ws://localhost:3000");
+  > = io(PUBLIC_WEB_WS_LOCATION);
 
   let messages: Array<{
     message: ApiInterface.Message,
@@ -28,7 +30,7 @@
   socket.on("message", message => {
     messages.push({ message });
     messages = messages;
-  })
+  });
 
   async function sendMessage(e: SubmitEvent) {
     const target = e.target as HTMLFormElement;
